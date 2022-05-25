@@ -1,5 +1,5 @@
 /**
- * Fetches first 150 Pokemon and returns an array of obejcts,
+ * Fetches first 50 Pokemon and returns an array of objects,
  * where each object represents a Pokemon.
  *
  * @returns {Array.<{
@@ -9,7 +9,7 @@
  */
 export async function getPokemonList() {
   const data = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50`
   ).then((res) => res.json());
   return data.results;
 }
@@ -17,17 +17,10 @@ export async function getPokemonList() {
 /**
  * @returns {string} Short description of Pokemon
  */
-export async function getPokemonDescription() {
+export async function getPokemonDescription(id) {
   const pokemon = await fetch(
-    `https://pokeapi.co/api/v2/pokemon-species/1`
+    `https://pokeapi.co/api/v2/pokemon-species/${id}`
   ).then((res) => res.json());
 
   return pokemon.flavor_text_entries[0].flavor_text.replace(/[\n\f]/g, " ");
-}
-
-/**
- * Returns URL of a Pokemon sprite image
- */
-export function getPokemonSpriteUrl(idx) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${idx}.png`;
 }
