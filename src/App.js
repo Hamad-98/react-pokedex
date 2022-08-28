@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     async function getDetailedData() {
       const list = await getPokemonList();
+      console.log(list);
       const newArray = [];
       for (let pokemons of list) {
         let url = pokemons.url;
