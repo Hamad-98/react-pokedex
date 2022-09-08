@@ -3,7 +3,7 @@ import Select from "./components/Select/Select";
 import React, { useEffect, useState } from "react";
 import { getPokemonDescription, getPokemonList } from "./components/api/utils";
 
-//test
+//testing github action
 function App() {
   const [pokemonList, setpokemonList] = useState([]);
 
